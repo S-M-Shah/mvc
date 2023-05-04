@@ -1,0 +1,37 @@
+
+//Include This Library
+using Microsoft.EntityFrameworkCore;
+
+
+//--------------------------------------------------Controller-------------------------
+private readonly letsContext zz;
+        public Suppose(letsContext context)
+        {
+            zz = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await zz.Suppose.ToListAsync());
+        }
+
+
+
+//-----------------------------------------------------View------------------------------
+
+
+@model IEnumerable<drill.Models.Suppose>
+
+
+@Html.DisplayNameFor(model => model.Usernamae)
+
+@foreach (var item in Model) {
+ @Html.DisplayFor(modelItem => item.Usernamae)
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+what does async needs Task while eturning data
+
+In C#, when a method is marked as async, it means that it is designed to run asynchronously, 
+which allows the calling code to continue executing while the asynchronous operation is in progress.
+
+When an async method returns data, it needs to return a Task or a Task<T>, 
+where T is the type of the data being returned. This is because the data is being returned as a result of an asynchronous operation,
+ which means that the data may not be immediately available when the method is called. 
+Instead, the Task object represents the ongoing operation, and the calling code can use it to monitor the progress of the operation, 
+wait for it to complete, or cancel it if needed.

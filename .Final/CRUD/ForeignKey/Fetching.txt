@@ -1,0 +1,31 @@
+----------------------------------------Controller------------------------
+
+  public async Task<IActionResult> Index()
+        {
+            var newList = _context.Products.Include(x => x.CatIdFkNavigation);
+            return View(await newList.ToListAsync());
+        }
+
+
+----------------------------------------View------------------------
+
+
+
+<h1>Index</h1>
+@model IEnumerable<WebApplication2.Models.Products>
+
+
+
+<table>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+        <td>@Html.DisplayFor(modelItem => item.PName)</td>
+        <td style="color:red">@Html.DisplayFor(modelItem => item.CatIdFkNavigation.CatName)</td>
+        
+    </tr>
+            }
+       
+    </table>

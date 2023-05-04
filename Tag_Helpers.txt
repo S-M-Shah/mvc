@@ -1,0 +1,10 @@
+asp-controller - Specifies the name of the controller that should handle a request.
+asp-action - Specifies the name of the action that should be called for a request.
+asp-for - Associates a form control with a model property, allowing for automatic binding of form data.
+asp-route - Specifies the values to be used for route parameters in a generated URL.
+asp-area - Specifies the name of the area that a controller belongs to.
+asp-protocol - Specifies the protocol to be used for a generated URL (http or https).
+asp-host - Specifies the hostname to be used for a generated URL.
+asp-fragment - Specifies the fragment identifier to be used for a generated URL (the part of the URL after the # symbol).
+asp-append-version - Specifies whether to append a cache-busting query string to the generated URL.
+asp-all-route-data - Generates a dictionary of all route data for a request.

@@ -1,0 +1,41 @@
+There are many LINQ extension methods in C# that can be used in ASP.NET Core MVC applications. 
+Here's a comprehensive list of the most commonly used LINQ extension methods in C# that are specifically designed for use in ASP.NET Core MVC:
+
+ToListAsync: Asynchronously converts an IQueryable sequence into a list.
+var products = await _context.Products.Where(p => p.Category == "Electronics").ToListAsync();
+
+
+-------------------------------------------------------------------------------------------------------------------------------playing with list
+Include: Specifies related entities to include in a query.
+var products = await _context.Products.Include(p => p.Category).ToListAsync();
+
+
+OrderBy: Sorts the elements of a collection in ascending order.
+OrderByDescending: Sorts the elements of a sequence in descending order.
+var products = await _context.Products.OrderByDescending(p => p.Price).ToListAsync();
+
+Skip: Skips a specified number of elements from the beginning of a collection.
+Take: Returns a specified number of elements from the beginning of a collection.
+var products = await _context.Products.Take(10).ToListAsync();
+
+
+-------------------------------------------------------------------------------------------------------------------------------conditions
+Where: Filters a collection based on a specified condition.
+var products = _context.Products.Where(p => p.InStock).ToList();
+
+FirstOrDefaultAsync: Asynchronously returns the first element of a sequence that satisfies a specified condition.
+var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------Boolean
+Any: Determines whether any element of a sequence satisfies a specified condition.
+All: Determines whether all elements of a collection satisfy a condition.
+var hasProducts = await _context.Products.AnyAsync();
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------Aggregate
+var productCount = await _context.Products.CountAsync();
+
+Count: Returns the number of elements in a collection.
+Sum: Computes the sum of the values in a collection.
+Average: Computes the average of the values in a collection.
+Max: Returns the maximum value in a collection.
+Min: Returns the minimum value in a collection.

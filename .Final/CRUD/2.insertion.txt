@@ -1,0 +1,39 @@
+//-----------------------------------------------------------------------------Controller------------------------------
+//Get
+public IActionResult Create()
+        {
+            return View();
+        }
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create([Bind("Id,Usernamae")] Suppose suppose)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Add(suppose);
+                await db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(suppose);
+        }
+
+------------------------------------------------------------------------------In View-------------------------------------
+
+@model drill_final.Models.Suppose
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Usernamae" class="control-label"></label>
+                <input asp-for="Usernamae" class="form-control" />
+                <span asp-validation-for="Usernamae" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

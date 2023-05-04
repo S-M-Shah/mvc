@@ -1,0 +1,6 @@
+Scaffold-DbContext "Data Source=localhost;Initial Catalog=xyz;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer
+
+
+
+
+Scaffold-DbContext "Data Source=localhost;Initial Catalog=lets;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -ContextDir Data -OutputDir Models

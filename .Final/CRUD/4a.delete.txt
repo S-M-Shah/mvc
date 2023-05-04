@@ -1,0 +1,48 @@
+ public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var suppose = await db.Suppose
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (suppose == null)
+            {
+                return NotFound();
+            }
+
+            return View(suppose);
+        }
+
+////////////////////////////////////////view
+@model drill_final.Models.Suppose
+<h3>Are you sure you want to delete this?</h3>
+
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Usernamae)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Usernamae)
+    </dd>
+</dl>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a asp-action="Index">Back to List</a>
+</form>
+
+///////////////////////////////////////////////////////////////////post
+
+        // POST: Supposes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var suppose = await db.Suppose.FindAsync(id);
+            db.Suppose.Remove(suppose);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }

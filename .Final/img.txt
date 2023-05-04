@@ -1,0 +1,36 @@
+//-----------------------------Controller--------------------
+   public async Task<IActionResult> Create (Suppose suppose, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                if (file != null && file.Length > 0)
+                {
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    string imagesFolder = Path.Combine(HttpContext.Request.PathBase.Value, "wwwroot/myfiles");
+                    if (!Directory.Exists(imagesFolder))
+                    {
+                        Directory.CreateDirectory(imagesFolder);
+                    }
+                    string filePath = Path.Combine(imagesFolder, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    var dbAdress=Path.Combine("myfiles",fileName);
+                    suppose.UserImg = dbAdress;
+                    db.Add(suppose);
+                    await db.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return View(suppose);
+        }
+
+//------------------------------------Create View--------------
+   <form asp-action="Create" enctype="multipart/form-data">
+ <input type="file" name="file" class="form-control" />
+
+//----------------------------------------Show View----------------------
+ <td> <img src="@Url.Content(item.UserImg)" alt="Image" height="100"></td>

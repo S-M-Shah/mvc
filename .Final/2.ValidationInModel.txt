@@ -1,0 +1,4 @@
+https://www.c-sharpcorner.com/UploadFile/13048b/model-validation-in-Asp-Net-mvc909/
+
+Date Time Range:
+https://stackoverflow.com/questions/1406046/data-annotation-ranges-of-dates

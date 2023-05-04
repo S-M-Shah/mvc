@@ -1,0 +1,14 @@
+HTML Helper methods: 
+ Html.TextBox, Html.DropDownList, and Html.CheckBox.
+
+URL Helper methods: 
+ Url.Action, Url.RouteUrl, and Url.Content.
+
+Partial Helper methods: 
+Html.Partial and Html.RenderPartial.
+
+Anti-forgery Helper methods: 
+Html.AntiForgeryToken and ValidateAntiForgeryToken.
+
+Tag Helper methods: 
+InputTagHelper, SelectTagHelper, and AnchorTagHelper.

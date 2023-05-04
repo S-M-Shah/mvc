@@ -1,0 +1,54 @@
+-----------------Controller-----------
+
+ public IActionResult Create()
+        {
+            ViewData["CatIdFk"] = new SelectList(_context.Category, "Id", "CatName");
+            return View();
+        }
+
+  
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Products products)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(products);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CatIdFk"] = new SelectList(_context.Category, "Id", "CatName");
+            return View(products);
+        }
+
+------------------View--------------
+@model WebApplication2.Models.Products
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PName" class="control-label"></label>
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CatIdFk
+                       " class="control-label"></label>
+                <select asp-for="CatIdFk" asp-items="ViewBag.CatIdFk">
+                    <option value="">-- Select --</option>
+                </select>
+                <span asp-validation-for="CatIdFk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+Searching:
+--------------------------------In View
+<form asp-action="Search">
+    <input type="text" name="xyz" />
+      <input type="submit" value="Click Me for Search" />
+</form>
+--------------------------------In Controller
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string xyz)
+        {
+            // var resultt = db.Students.Where(x => x.StudentName.Contains(xyz));
+      var resultt = db.Students.Where(x => EF.Functions.Like(x.StudentName,"a%"));
+            return View("Index", await resultt.ToListAsync());
+
+        }

@@ -1,0 +1,10 @@
+--------------In Controller
+public IActionResult Index()
+        {
+            ViewBag.x="hELLO";
+            return View();
+        }
+
+--------------In View
+
+<h1> @ViewBag.x </h1>

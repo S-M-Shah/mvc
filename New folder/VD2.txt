@@ -1,0 +1,13 @@
+-------------------In Controller
+ public IActionResult Index(int id)
+        {
+            ViewData["x"] = id;
+            return View();
+        }
+-------------------In View
+@{
+    var xyz = Convert.ToInt32(ViewData["x"]);
+    var neww = xyz * xyz;
+}
+
+<h1> the square of @xyz is @neww  </h1>

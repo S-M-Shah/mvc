@@ -1,0 +1,15 @@
+      public IActionResult Index(int id)
+        {
+           // ViewBag.x = "Hello World " + id;
+            ViewBag.x=id;
+            return View();
+        }
+
+
+----------------------In View:
+@{ 
+    var xyz = ViewBag.x;
+    var neww = xyz*xyz;
+}
+
+<h1> the square of @xyz is @neww  </h1>

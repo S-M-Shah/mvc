@@ -1,0 +1,8 @@
+-------------------In Controller
+ public IActionResult Index()
+        {
+            ViewData["x"]="hELLO";
+            return View();
+        }
+-------------------In View
+@ViewData["x"]

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebApplication9.Models.Students>
+<h1> HELLOOO </h1>
+
+<table class="table">
+
+    <tr>
+        <th> Id </th>
+        <th> @Html.DisplayNameFor(model => model.StudentName) </th>
+        <th> Contact </th>
+        <th> Edit</th>
+        <th> Delete</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(y => x.Id) </td>
+            <td> @Html.DisplayFor(y => x.StudentName) </td>
+            <td> @Html.DisplayFor(y => x.ContactNumber) </td>
+            <td> <a asp-action="Edit" asp-route-id="@x.Id"> Edit </a></td>
+            <td onclick="return confirm('Are you sure you want to delete user : @x.StudentName')"> <a asp-action="Delete" asp-route-id="@x.Id"> Delete </a></td>
+        </tr>
+    }
+</table>
+
+

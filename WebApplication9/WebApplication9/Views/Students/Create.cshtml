@@ -1,0 +1,17 @@
+﻿@model WebApplication9.Models.Students
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <label asp-for="StudentName"> </label>
+    <input type="text" asp-for="StudentName" />
+    <span asp-validation-for="StudentName" class="bg-danger"></span>
+    <br />
+    <label> Contact Numver </label>
+    <input type="text" asp-for="ContactNumber" />
+    <span asp-validation-for="ContactNumber" class="bg-danger"></span>
+
+
+    <input type="submit" value="Add" />
+
+</form>

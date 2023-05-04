@@ -1,0 +1,3 @@
+In ASP.NET Core MVC, a GUID (Globally Unique Identifier) is a 128-bit value that is used to identify a unique entity or record in a database or system. GUIDs are generated using algorithms that ensure a high degree of randomness and uniqueness, which makes them ideal for use in distributed systems where conflicts between identifiers can occur.
+
+To use GUIDs in ASP.NET Core MVC, you can define a property in your model with the System.Guid data type. For example, suppose you have a Product model that represents a product in an e-commerce application. You can define a property named Id with the Guid data type

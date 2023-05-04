@@ -1,0 +1,16 @@
+  public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var suppose = await db.Suppose.FirstOrDefaultAsync(m => m.Id == id);
+            if (suppose == null)
+            {
+                return NotFound();
+            }
+            db.Suppose.Remove(suppose);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }

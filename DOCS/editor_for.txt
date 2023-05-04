@@ -1,0 +1,8 @@
+// Example 1: Using @Html.Editor to create a generic input element
+@Html.Editor("MyProperty")
+
+// Example 2: Using @Html.EditorFor to create an input element for a specific model property
+@Html.EditorFor(model => model.MyProperty)
+
+// Example 3: Using @Html.EditorForModel to create input elements for all properties of a model
+@Html.EditorForModel()

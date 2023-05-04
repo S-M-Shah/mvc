@@ -1,0 +1,16 @@
+ letsContext db = new letsContext();
+        
+        public IActionResult Index()
+        {
+            return View(db.Suppose.ToList());
+
+        }
+
+
+
+------------------------View----------------
+@model IEnumerable<drill.Models.Suppose>
+ @Html.DisplayNameFor(model => model.Usernamae)
+@foreach (var item in Model) {
+ @Html.DisplayFor(modelItem => item.Usernamae)
+}

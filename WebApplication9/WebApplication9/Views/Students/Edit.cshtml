@@ -1,0 +1,19 @@
+﻿@model WebApplication9.Models.Students
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="Id" />
+
+
+    <label asp-for="StudentName"> </label>
+    <input type="text" asp-for="StudentName" />
+    <span asp-validation-for="StudentName"></span>
+
+    <label> Contact Numver </label>
+    <input type="text" asp-for="ContactNumber" />
+    <span asp-validation-for="ContactNumber"></span>
+
+
+    <input type="submit" value="Update" />
+
+</form>

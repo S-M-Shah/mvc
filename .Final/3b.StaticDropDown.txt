@@ -1,0 +1,4 @@
+ @Html.DropDownListFor(model => model.Status, new SelectList(
+                  new List<Object>{
+                       new { value = "Yes" , text = "Yes"  },
+                       new { value = "No" , text =  "No" }},"value","text"), htmlAttributes: new { @class = "form-control" })
